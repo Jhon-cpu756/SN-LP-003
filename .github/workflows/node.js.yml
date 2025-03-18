@@ -91,11 +91,7 @@ jobs:
           SLACK_ICON_EMOJI: ':warning:'
           SLACK_MESSAGE: "Snyk Security Scan completed. Check results in GitHub Security Tab."
 
-      - name: Update Vulnerability Dashboard
-        run: |
-          curl -X POST -H "Content-Type: application/json" \
-               -d '{"event":"security_scan","status":"completed"}' \
-               ${{ secrets.GRAFANA_WEBHOOK_URL }}
+    
 
   build-app:
     runs-on: ubuntu-latest
